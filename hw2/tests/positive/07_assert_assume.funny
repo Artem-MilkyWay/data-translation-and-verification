@@ -1,0 +1,5 @@
+function check(x: int) returns r: int {
+    assume x >= 0;
+    assert x >= 0;
+    r = x;
+}

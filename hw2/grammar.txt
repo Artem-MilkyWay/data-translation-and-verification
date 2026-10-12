@@ -1,0 +1,77 @@
+# Funny language grammar (LL(1) form used by the recursive-descent parser)
+# Terminals are quoted or written in UPPER_CASE matching lexer token kinds.
+# Optional constructs in [ ]; repetition { }.
+
+program        -> { functionDecl | formulaDecl }
+
+functionDecl   -> "function" IDENT "(" params ")"
+                  [ "requires" predicate ]
+                  "returns" params
+                  [ "ensures" predicate ]
+                  [ "uses" localVars ]
+                  statement
+
+formulaDecl    -> IDENT "(" params ")" "->" predicate ";"
+
+params         -> [ param { "," param } ]
+param          -> IDENT ":" type
+type           -> "int" [ "[" "]" ]
+
+localVars      -> localVar { "," localVar }
+localVar       -> IDENT [ ":" type ]
+
+statement      -> block
+                | conditional
+                | loop
+                | assertStmt
+                | assumeStmt
+                | assignment
+
+block          -> "{" { statement } "}"
+
+conditional    -> "if" "(" condition ")" statement [ "else" statement ]
+
+loop           -> "while" "(" condition ")" [ "invariant" predicate ] statement
+
+assertStmt     -> "assert" predicate ";"
+assumeStmt     -> "assume" predicate ";"
+
+assignment     -> lvalue { "," lvalue } "=" expr ";"
+lvalue         -> IDENT | IDENT "[" expr "]"
+
+# Arithmetic (left-associative)
+expr           -> term { ("+" | "-") term }
+term           -> factor { ("*" | "/") factor }
+factor         -> "-" factor
+                | "(" expr ")"
+                | functionCall
+                | IDENT "[" expr "]"
+                | INT
+                | "true" | "false"
+                | IDENT
+
+functionCall   -> IDENT "(" [ expr { "," expr } ] ")"
+
+# Conditions / predicates (predicate ::= condition)
+# Precedence (high -> low): not > and > or > -> (right-assoc) > comparison
+condition      -> impl
+impl           -> or [ "->" impl ]          # right-associative
+or             -> and { "or" and }
+and            -> not { "and" not }
+not            -> [ "not" ] comparison
+comparison     -> quantifier
+                | "(" condition ")"
+                | expr [ ("==" | "!=" | "<=" | ">=" | "<" | ">") expr ]
+                | "true" | "false"          # via expr / BoolLit
+
+quantifier     -> ("forall" | "exists") "(" param "|" predicate ")"
+
+predicate      -> condition
+
+# Notes / deviations from full Funny docs:
+# - Quantifiers and formula declarations are parsed but not required for basic HW2 tests.
+# - Multi-dimensional array sugar a[i][j]=v is not desugared (single-level ArrayAccess only).
+# - Local variable type inference is not performed (parser keeps optional type annotation).
+# - Error mode: stop on first error (no panic-mode recovery).
+# - "length" is a keyword token (LENGTH) but may also appear as IDENT in older programs;
+#   the lexer prioritizes the keyword.
