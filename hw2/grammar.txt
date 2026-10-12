@@ -2,6 +2,7 @@
 # Terminals are quoted or written in UPPER_CASE matching lexer token kinds.
 # Optional constructs in [ ]; repetition { }.
 
+# Секция 1: Структура программы и объявления
 program        -> { functionDecl | formulaDecl }
 
 functionDecl   -> "function" IDENT "(" params ")"
@@ -13,6 +14,7 @@ functionDecl   -> "function" IDENT "(" params ")"
 
 formulaDecl    -> IDENT "(" params ")" "->" predicate ";"
 
+# Секция 2: Параметры, типы и локальные переменные
 params         -> [ param { "," param } ]
 param          -> IDENT ":" type
 type           -> "int" [ "[" "]" ]
@@ -20,6 +22,7 @@ type           -> "int" [ "[" "]" ]
 localVars      -> localVar { "," localVar }
 localVar       -> IDENT [ ":" type ]
 
+# Секция 3: Инструкции управления (Statements)
 statement      -> block
                 | conditional
                 | loop
@@ -39,7 +42,7 @@ assumeStmt     -> "assume" predicate ";"
 assignment     -> lvalue { "," lvalue } "=" expr ";"
 lvalue         -> IDENT | IDENT "[" expr "]"
 
-# Arithmetic (left-associative)
+# Секция 4: Арифметические выражения (Высший приоритет)
 expr           -> term { ("+" | "-") term }
 term           -> factor { ("*" | "/") factor }
 factor         -> "-" factor
@@ -47,13 +50,14 @@ factor         -> "-" factor
                 | functionCall
                 | IDENT "[" expr "]"
                 | INT
+
                 | "true" | "false"
                 | IDENT
 
 functionCall   -> IDENT "(" [ expr { "," expr } ] ")"
 
-# Conditions / predicates (predicate ::= condition)
-# Precedence (high -> low): not > and > or > -> (right-assoc) > comparison
+# Секция 5: Логические предикаты и условия (По слоям приоритета)
+predicate      -> condition
 condition      -> impl
 impl           -> or [ "->" impl ]          # right-associative
 or             -> and { "or" and }
@@ -61,17 +65,31 @@ and            -> not { "and" not }
 not            -> [ "not" ] comparison
 comparison     -> quantifier
                 | "(" condition ")"
+
                 | expr [ ("==" | "!=" | "<=" | ">=" | "<" | ">") expr ]
                 | "true" | "false"          # via expr / BoolLit
 
 quantifier     -> ("forall" | "exists") "(" param "|" predicate ")"
 
-predicate      -> condition
+IDENT          -> letter { letter | digit }
+
+INT            -> "0" | nonZeroDigit { digit }
+
+digit          -> "0" | nonZeroDigit
+
+nonZeroDigit   -> "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+
+letter         -> "A" | "B" | "C" | "D" | "E" | "F" | "G" | "H" | "I" | "J" | "K" | "L" | "M"
+
+                | "N" | "O" | "P" | "Q" | "R" | "S" | "T" | "U" | "V" | "W" | "X" | "Y" | "Z"
+                | "a" | "b" | "c" | "d" | "e" | "f" | "g" | "h" | "i" | "j" | "k" | "l" | "m"
+                | "n" | "o" | "p" | "q" | "r" | "s" | "t" | "u" | "v" | "w" | "x" | "y" | "z"
+                | "_"
 
 # Notes / deviations from full Funny docs:
 # - Quantifiers and formula declarations are parsed but not required for basic HW2 tests.
 # - Multi-dimensional array sugar a[i][j]=v is not desugared (single-level ArrayAccess only).
 # - Local variable type inference is not performed (parser keeps optional type annotation).
-# - Error mode: stop on first error (no panic-mode recovery).
+# - Error mode: panic-mode recovery is fully implemented.
 # - "length" is a keyword token (LENGTH) but may also appear as IDENT in older programs;
 #   the lexer prioritizes the keyword.
