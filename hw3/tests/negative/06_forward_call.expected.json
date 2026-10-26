@@ -1,0 +1,8 @@
+[
+  {
+    "code": "E_BEFORE_DECLARATION",
+    "line": 2,
+    "column": 9,
+    "message_contains": "Name 'later' is used before"
+  }
+]

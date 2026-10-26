@@ -1,0 +1,180 @@
+{
+  "format_version": 1,
+  "ok": true,
+  "ast": {
+    "kind": "Module",
+    "functions": [
+      {
+        "kind": "Function",
+        "name": "sum",
+        "params": [
+          {
+            "kind": "VarDef",
+            "name": "a",
+            "type": {
+              "kind": "TypeInt",
+              "position": {
+                "line": 1,
+                "column": 17,
+                "offset": 16
+              }
+            },
+            "position": {
+              "line": 1,
+              "column": 14,
+              "offset": 13
+            },
+            "inferred_type": "int",
+            "symbol_id": 2
+          }
+        ],
+        "returns": [
+          {
+            "kind": "VarDef",
+            "name": "r",
+            "type": {
+              "kind": "TypeInt",
+              "position": {
+                "line": 1,
+                "column": 33,
+                "offset": 32
+              }
+            },
+            "position": {
+              "line": 1,
+              "column": 30,
+              "offset": 29
+            },
+            "inferred_type": "int",
+            "symbol_id": 3
+          }
+        ],
+        "requires": null,
+        "ensures": null,
+        "uses": [],
+        "body": {
+          "kind": "Block",
+          "stmts": [
+            {
+              "kind": "Assign",
+              "targets": [
+                {
+                  "kind": "Var",
+                  "name": "r",
+                  "position": {
+                    "line": 2,
+                    "column": 5,
+                    "offset": 42
+                  },
+                  "inferred_type": "int",
+                  "symbol_id": 3
+                }
+              ],
+              "value": {
+                "kind": "BinOp",
+                "op": "+",
+                "left": {
+                  "kind": "Var",
+                  "name": "a",
+                  "position": {
+                    "line": 2,
+                    "column": 9,
+                    "offset": 46
+                  },
+                  "inferred_type": "int",
+                  "symbol_id": 2
+                },
+                "right": {
+                  "kind": "IntLit",
+                  "value": 5,
+                  "position": {
+                    "line": 2,
+                    "column": 13,
+                    "offset": 50
+                  },
+                  "inferred_type": "int"
+                },
+                "position": {
+                  "line": 2,
+                  "column": 11,
+                  "offset": 48
+                },
+                "inferred_type": "int"
+              },
+              "position": {
+                "line": 2,
+                "column": 5,
+                "offset": 42
+              }
+            }
+          ],
+          "position": {
+            "line": 1,
+            "column": 37,
+            "offset": 36
+          }
+        },
+        "position": {
+          "line": 1,
+          "column": 10,
+          "offset": 9
+        },
+        "inferred_type": {
+          "kind": "func",
+          "params": [
+            "int"
+          ],
+          "returns": [
+            "int"
+          ]
+        },
+        "symbol_id": 1
+      }
+    ],
+    "formulas": []
+  },
+  "symbols": [
+    {
+      "id": 1,
+      "name": "sum",
+      "kind": "function",
+      "type": {
+        "kind": "func",
+        "params": [
+          "int"
+        ],
+        "returns": [
+          "int"
+        ]
+      },
+      "position": {
+        "line": 1,
+        "column": 10,
+        "offset": 9
+      }
+    },
+    {
+      "id": 2,
+      "name": "a",
+      "kind": "parameter",
+      "type": "int",
+      "position": {
+        "line": 1,
+        "column": 14,
+        "offset": 13
+      }
+    },
+    {
+      "id": 3,
+      "name": "r",
+      "kind": "return",
+      "type": "int",
+      "position": {
+        "line": 1,
+        "column": 30,
+        "offset": 29
+      }
+    }
+  ],
+  "errors": []
+}

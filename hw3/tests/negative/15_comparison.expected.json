@@ -1,0 +1,8 @@
+[
+  {
+    "code": "E_TYPE_MISMATCH",
+    "line": 2,
+    "column": 14,
+    "message_contains": "expected int, got bool"
+  }
+]

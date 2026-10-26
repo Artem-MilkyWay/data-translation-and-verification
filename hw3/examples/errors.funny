@@ -1,0 +1,6 @@
+function broken(a: int) returns r: int uses x: bool, x: int {
+    r = unknown + true;
+    x = 7;
+    r = broken();
+    if (a) { r = 0; }
+}

@@ -1,0 +1,7 @@
+function f(x: int) requires x > 0 returns r: int ensures r >= x uses i: int {
+    i = x;
+    while (i > 0) invariant i >= 0 { i = i - 1; }
+    assume x >= 1;
+    assert true;
+    r = x;
+}

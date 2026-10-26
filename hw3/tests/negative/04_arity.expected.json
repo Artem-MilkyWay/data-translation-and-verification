@@ -1,0 +1,8 @@
+[
+  {
+    "code": "E_ARGUMENT_COUNT",
+    "line": 3,
+    "column": 9,
+    "message_contains": "expected 1 arguments, got 0"
+  }
+]

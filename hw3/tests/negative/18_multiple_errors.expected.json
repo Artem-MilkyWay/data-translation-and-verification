@@ -1,0 +1,20 @@
+[
+  {
+    "code": "E_UNKNOWN_NAME",
+    "line": 2,
+    "column": 9,
+    "message_contains": "Unknown name 'missing'"
+  },
+  {
+    "code": "E_TYPE_MISMATCH",
+    "line": 3,
+    "column": 5,
+    "message_contains": "expected int, got bool"
+  },
+  {
+    "code": "E_TYPE_MISMATCH",
+    "line": 4,
+    "column": 12,
+    "message_contains": "expected bool, got int"
+  }
+]

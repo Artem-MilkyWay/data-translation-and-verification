@@ -1,0 +1,7 @@
+function id(x: int) returns r: int {
+    r = x;
+}
+
+function main() returns r: int {
+    r = id(42);
+}

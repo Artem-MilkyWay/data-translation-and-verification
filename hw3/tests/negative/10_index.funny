@@ -1,0 +1,3 @@
+function f(a: int[]) returns r: int {
+    r = a[true];
+}

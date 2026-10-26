@@ -1,0 +1,53 @@
+Funny HW3 — поддерживаемая грамматика (EBNF)
+Токены и операторы унаследованы из HW2; добавлен BOOL_TYPE.
+
+program       = declaration, { declaration } ;
+declaration   = functionDecl | formulaDecl ;
+functionDecl  = "function", IDENT, "(", [ params ], ")",
+                [ "requires", condition ],
+                "returns", params,
+                [ "ensures", condition ],
+                [ "uses", locals ], statement ;
+formulaDecl   = IDENT, "(", [ params ], ")", "->", condition, ";" ;
+params        = param, { ",", param } ;
+param         = IDENT, ":", type ;
+type          = "int", [ "[", "]" ] | "bool" ;
+locals        = local, { ",", local } ;
+local         = IDENT, [ ":", type ] ;
+# Парсер HW2 сохраняет локальную без аннотации в AST, но HW3 выдаёт
+# E_MISSING_TYPE. В корректной программе у каждой локальной есть тип.
+
+statement     = block | ifStmt | whileStmt | assertStmt | assumeStmt | assign ;
+block         = "{", { statement }, "}" ;
+ifStmt        = "if", "(", condition, ")", statement, [ "else", statement ] ;
+whileStmt     = "while", "(", condition, ")", [ "invariant", condition ], statement ;
+assertStmt    = "assert", condition, ";" ;
+assumeStmt    = "assume", condition, ";" ;
+assign        = lvalue, { ",", lvalue }, "=", condition, ";" ;
+lvalue        = IDENT, [ "[", condition, "]" ] ;
+
+condition     = implication ;
+implication   = disjunction, [ "->", implication ] ;
+disjunction   = conjunction, { "or", conjunction } ;
+conjunction   = negation, { "and", negation } ;
+negation      = "not", negation | comparison ;
+comparison    = quantifier | expr, [ comparisonOp, expr ] ;
+comparisonOp  = "==" | "!=" | "<" | ">" | "<=" | ">=" ;
+expr          = term, { ("+" | "-"), term } ;
+term          = factor, { ("*" | "/"), factor } ;
+factor        = "-", factor | "(", condition, ")" | INT | "true" | "false"
+              | IDENT, [ "(", [ arguments ], ")" | "[", condition, "]" ] ;
+arguments     = condition, { ",", condition } ;
+quantifier    = ("forall" | "exists"), "(", param, "|", condition, ")" ;
+
+IDENT: [A-Za-z_][A-Za-z0-9_]*, кроме ключевых слов.
+INT: 0 | [1-9][0-9]*; минус — отдельный унарный оператор.
+Пробелы и //-комментарии пропускаются. Алфавит лексера — ASCII.
+
+Приоритет от высокого к низкому:
+унарный -, * /, + -, сравнения, not, and, or, ->.
+-> правоассоциативен; арифметика, and и or левоассоциативны.
+У сравнения не более одного оператора; 1 < x < 3 не поддерживается.
+else относится к ближайшему незавершённому if.
+
+Семантические ограничения описаны в README.md и REPORT.md.

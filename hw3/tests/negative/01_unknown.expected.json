@@ -1,0 +1,8 @@
+[
+  {
+    "code": "E_UNKNOWN_NAME",
+    "line": 2,
+    "column": 9,
+    "message_contains": "Unknown name 'missing'"
+  }
+]

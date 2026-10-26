@@ -1,0 +1,2 @@
+function keep(b: bool) returns r: bool { r = b; }
+function main(x: int) returns r: bool { r = keep(x > 0 and true); }

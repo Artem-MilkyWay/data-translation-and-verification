@@ -1,0 +1,8 @@
+[
+  {
+    "code": "E_TYPE_MISMATCH",
+    "line": 2,
+    "column": 9,
+    "message_contains": "Array access: expected int[], got int"
+  }
+]

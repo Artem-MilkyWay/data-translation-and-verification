@@ -1,0 +1,8 @@
+[
+  {
+    "code": "E_MISSING_TYPE",
+    "line": 1,
+    "column": 34,
+    "message_contains": "Variable 'x' requires an explicit type"
+  }
+]

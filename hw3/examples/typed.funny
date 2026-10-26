@@ -1,0 +1,22 @@
+function next(a: int) returns r: int {
+    r = a + 1;
+}
+
+positive(a: int) -> a > 0;
+
+function demo(a: int[], n: int)
+    requires n > 0
+    returns r: int, ok: bool
+    ensures ok -> r > 0
+    uses i: int, total: int
+{
+    i = 0;
+    total = 0;
+    while (i < n) invariant i >= 0 {
+        total = total + a[i];
+        i = next(i);
+    }
+    r = total;
+    ok = positive(r);
+    assert forall(j: int | j >= 0 -> j + 1 > 0);
+}

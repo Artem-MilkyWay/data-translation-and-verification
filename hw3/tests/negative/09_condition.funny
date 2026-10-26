@@ -1,0 +1,3 @@
+function f() returns r: int {
+    if (1) { r = 0; }
+}

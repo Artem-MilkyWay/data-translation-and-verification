@@ -1,0 +1,3 @@
+function f(a: int[], b: int[], x: bool) returns ok: bool {
+    ok = (a == b) and (x != false) and (1 <= 2) and (2 >= 1);
+}

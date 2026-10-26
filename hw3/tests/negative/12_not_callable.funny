@@ -1,0 +1,3 @@
+function f() returns r: int uses x: int {
+    r = x();
+}

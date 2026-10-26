@@ -1,0 +1,5 @@
+function f(x: int, b: bool) returns r: int, ok: bool {
+    r = (x + 2) * (x - 1);
+    ok = ((x + 1) > 0) and (not b or true);
+    if ((b)) { r = 0; }
+}

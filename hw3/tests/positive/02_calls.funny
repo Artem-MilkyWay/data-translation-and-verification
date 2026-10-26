@@ -1,0 +1,2 @@
+function pair(x: int, b: bool) returns a: int, ok: bool { a = x; ok = b; }
+function main() returns r: int uses b: bool { r, b = pair(4, true); }

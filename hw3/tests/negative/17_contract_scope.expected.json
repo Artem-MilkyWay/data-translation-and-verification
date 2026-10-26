@@ -1,0 +1,14 @@
+[
+  {
+    "code": "E_UNKNOWN_NAME",
+    "line": 1,
+    "column": 23,
+    "message_contains": "Unknown name 'r'"
+  },
+  {
+    "code": "E_UNKNOWN_NAME",
+    "line": 1,
+    "column": 52,
+    "message_contains": "Unknown name 'x'"
+  }
+]

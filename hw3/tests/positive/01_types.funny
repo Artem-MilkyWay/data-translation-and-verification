@@ -1,0 +1,7 @@
+function f(x: int, b: bool, a: int[]) returns r: int, ok: bool uses t: int, c: int[] {
+    t = -x + 2 * 3 / 1 - 4;
+    c = a;
+    c[t] = x;
+    r = c[0];
+    ok = not b or (r < x and r != 0) -> true;
+}

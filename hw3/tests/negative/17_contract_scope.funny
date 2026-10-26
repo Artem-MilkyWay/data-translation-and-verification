@@ -1,0 +1,1 @@
+function f() requires r > 0 returns r: int ensures x > 0 uses x: int { r = 0; }

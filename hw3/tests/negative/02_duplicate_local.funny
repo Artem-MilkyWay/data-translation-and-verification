@@ -1,0 +1,1 @@
+function f() returns r: int uses x: int, x: bool { r = 0; }

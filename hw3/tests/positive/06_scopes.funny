@@ -1,0 +1,6 @@
+function f(x: int) returns r: int {
+    assert forall(x: bool | x or not x);
+    assert exists(x: int | x > 0);
+    r = x;
+}
+function g(x: bool) returns r: bool { r = x; }

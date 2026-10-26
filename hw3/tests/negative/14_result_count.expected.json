@@ -1,0 +1,8 @@
+[
+  {
+    "code": "E_RESULT_COUNT",
+    "line": 2,
+    "column": 5,
+    "message_contains": "2 targets, but the right side produces 1 values"
+  }
+]

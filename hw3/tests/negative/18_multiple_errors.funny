@@ -1,0 +1,5 @@
+function f() returns r: int {
+    r = missing;
+    r = true;
+    assert 1;
+}

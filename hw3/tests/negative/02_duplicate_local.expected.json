@@ -1,0 +1,8 @@
+[
+  {
+    "code": "E_DUPLICATE_NAME",
+    "line": 1,
+    "column": 42,
+    "message_contains": "Duplicate declaration of 'x'"
+  }
+]

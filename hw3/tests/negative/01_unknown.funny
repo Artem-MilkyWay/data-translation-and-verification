@@ -1,0 +1,3 @@
+function f() returns r: int {
+    r = missing;
+}

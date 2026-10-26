@@ -1,0 +1,5 @@
+positive(x: int) -> x > 0;
+all_nonnegative(a: int[]) -> forall(i: int | i >= 0 -> a[i] >= 0);
+function f(x: int, a: int[]) returns ok: bool {
+    ok = positive(x) and all_nonnegative(a);
+}

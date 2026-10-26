@@ -1,0 +1,8 @@
+[
+  {
+    "code": "E_NOT_CALLABLE",
+    "line": 2,
+    "column": 9,
+    "message_contains": "'x' has type int and cannot be called"
+  }
+]

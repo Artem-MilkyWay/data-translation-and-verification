@@ -1,0 +1,4 @@
+function id(a: int) returns r: int { r = a; }
+function f() returns r: int {
+    r = id(false);
+}
