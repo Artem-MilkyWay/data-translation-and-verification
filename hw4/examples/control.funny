@@ -1,0 +1,15 @@
+function sum_to(n: int) returns result: int uses i: int, flag: bool, extra: int {
+    result = 0;
+    i = 0;
+    extra = 2 * 3;
+    if (n > 0) {
+        result = result + extra;
+    } else {
+        result = 0 + 0;
+    }
+    while (i < n) {
+        result = result + i;
+        i = i + 1;
+    }
+    flag = result >= 0;
+}

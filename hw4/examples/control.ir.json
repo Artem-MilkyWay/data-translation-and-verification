@@ -1,0 +1,763 @@
+{
+  "format": "funny-ir-v1",
+  "functions": [
+    {
+      "name": "sum_to",
+      "symbol_id": 1,
+      "params": [
+        {
+          "name": "n",
+          "symbol_id": 2,
+          "ir_name": "v2",
+          "type": "int"
+        }
+      ],
+      "returns": [
+        {
+          "name": "result",
+          "symbol_id": 3,
+          "ir_name": "v3",
+          "type": "int"
+        }
+      ],
+      "locals": [
+        {
+          "name": "i",
+          "symbol_id": 4,
+          "ir_name": "v4",
+          "type": "int"
+        },
+        {
+          "name": "flag",
+          "symbol_id": 5,
+          "ir_name": "v5",
+          "type": "bool"
+        },
+        {
+          "name": "extra",
+          "symbol_id": 6,
+          "ir_name": "v6",
+          "type": "int"
+        }
+      ],
+      "ir_before": [
+        {
+          "op": "label",
+          "dest": null,
+          "args": [
+            "sum_to"
+          ]
+        },
+        {
+          "op": "copy",
+          "dest": "v3",
+          "args": [
+            0
+          ]
+        },
+        {
+          "op": "copy",
+          "dest": "v4",
+          "args": [
+            0
+          ]
+        },
+        {
+          "op": "bin",
+          "dest": "t1",
+          "args": [
+            2,
+            "*",
+            3
+          ]
+        },
+        {
+          "op": "copy",
+          "dest": "v6",
+          "args": [
+            "t1"
+          ]
+        },
+        {
+          "op": "bin",
+          "dest": "t2",
+          "args": [
+            "v2",
+            ">",
+            0
+          ]
+        },
+        {
+          "op": "branch",
+          "dest": null,
+          "args": [
+            "t2",
+            "L1",
+            "L2"
+          ]
+        },
+        {
+          "op": "label",
+          "dest": null,
+          "args": [
+            "L1"
+          ]
+        },
+        {
+          "op": "bin",
+          "dest": "t3",
+          "args": [
+            "v3",
+            "+",
+            "v6"
+          ]
+        },
+        {
+          "op": "copy",
+          "dest": "v3",
+          "args": [
+            "t3"
+          ]
+        },
+        {
+          "op": "jump",
+          "dest": null,
+          "args": [
+            "L3"
+          ]
+        },
+        {
+          "op": "label",
+          "dest": null,
+          "args": [
+            "L2"
+          ]
+        },
+        {
+          "op": "bin",
+          "dest": "t4",
+          "args": [
+            0,
+            "+",
+            0
+          ]
+        },
+        {
+          "op": "copy",
+          "dest": "v3",
+          "args": [
+            "t4"
+          ]
+        },
+        {
+          "op": "label",
+          "dest": null,
+          "args": [
+            "L3"
+          ]
+        },
+        {
+          "op": "label",
+          "dest": null,
+          "args": [
+            "L4"
+          ]
+        },
+        {
+          "op": "bin",
+          "dest": "t5",
+          "args": [
+            "v4",
+            "<",
+            "v2"
+          ]
+        },
+        {
+          "op": "branch",
+          "dest": null,
+          "args": [
+            "t5",
+            "L5",
+            "L6"
+          ]
+        },
+        {
+          "op": "label",
+          "dest": null,
+          "args": [
+            "L5"
+          ]
+        },
+        {
+          "op": "bin",
+          "dest": "t6",
+          "args": [
+            "v3",
+            "+",
+            "v4"
+          ]
+        },
+        {
+          "op": "copy",
+          "dest": "v3",
+          "args": [
+            "t6"
+          ]
+        },
+        {
+          "op": "bin",
+          "dest": "t7",
+          "args": [
+            "v4",
+            "+",
+            1
+          ]
+        },
+        {
+          "op": "copy",
+          "dest": "v4",
+          "args": [
+            "t7"
+          ]
+        },
+        {
+          "op": "jump",
+          "dest": null,
+          "args": [
+            "L4"
+          ]
+        },
+        {
+          "op": "label",
+          "dest": null,
+          "args": [
+            "L6"
+          ]
+        },
+        {
+          "op": "bin",
+          "dest": "t8",
+          "args": [
+            "v3",
+            ">=",
+            0
+          ]
+        },
+        {
+          "op": "copy",
+          "dest": "v5",
+          "args": [
+            "t8"
+          ]
+        },
+        {
+          "op": "return",
+          "dest": null,
+          "args": [
+            "v3"
+          ]
+        }
+      ],
+      "ir_after": [
+        {
+          "op": "label",
+          "dest": null,
+          "args": [
+            "sum_to"
+          ]
+        },
+        {
+          "op": "copy",
+          "dest": "v3",
+          "args": [
+            0
+          ]
+        },
+        {
+          "op": "copy",
+          "dest": "v4",
+          "args": [
+            0
+          ]
+        },
+        {
+          "op": "copy",
+          "dest": "v6",
+          "args": [
+            6
+          ]
+        },
+        {
+          "op": "bin",
+          "dest": "t2",
+          "args": [
+            "v2",
+            ">",
+            0
+          ]
+        },
+        {
+          "op": "branch",
+          "dest": null,
+          "args": [
+            "t2",
+            "L1",
+            "L2"
+          ]
+        },
+        {
+          "op": "label",
+          "dest": null,
+          "args": [
+            "L1"
+          ]
+        },
+        {
+          "op": "bin",
+          "dest": "t3",
+          "args": [
+            "v3",
+            "+",
+            "v6"
+          ]
+        },
+        {
+          "op": "copy",
+          "dest": "v3",
+          "args": [
+            "t3"
+          ]
+        },
+        {
+          "op": "jump",
+          "dest": null,
+          "args": [
+            "L3"
+          ]
+        },
+        {
+          "op": "label",
+          "dest": null,
+          "args": [
+            "L2"
+          ]
+        },
+        {
+          "op": "copy",
+          "dest": "v3",
+          "args": [
+            0
+          ]
+        },
+        {
+          "op": "label",
+          "dest": null,
+          "args": [
+            "L3"
+          ]
+        },
+        {
+          "op": "label",
+          "dest": null,
+          "args": [
+            "L4"
+          ]
+        },
+        {
+          "op": "bin",
+          "dest": "t5",
+          "args": [
+            "v4",
+            "<",
+            "v2"
+          ]
+        },
+        {
+          "op": "branch",
+          "dest": null,
+          "args": [
+            "t5",
+            "L5",
+            "L6"
+          ]
+        },
+        {
+          "op": "label",
+          "dest": null,
+          "args": [
+            "L5"
+          ]
+        },
+        {
+          "op": "bin",
+          "dest": "t6",
+          "args": [
+            "v3",
+            "+",
+            "v4"
+          ]
+        },
+        {
+          "op": "copy",
+          "dest": "v3",
+          "args": [
+            "t6"
+          ]
+        },
+        {
+          "op": "bin",
+          "dest": "t7",
+          "args": [
+            "v4",
+            "+",
+            1
+          ]
+        },
+        {
+          "op": "copy",
+          "dest": "v4",
+          "args": [
+            "t7"
+          ]
+        },
+        {
+          "op": "jump",
+          "dest": null,
+          "args": [
+            "L4"
+          ]
+        },
+        {
+          "op": "label",
+          "dest": null,
+          "args": [
+            "L6"
+          ]
+        },
+        {
+          "op": "return",
+          "dest": null,
+          "args": [
+            "v3"
+          ]
+        }
+      ],
+      "cfg": [
+        {
+          "name": "sum_to",
+          "instructions": [
+            {
+              "op": "label",
+              "dest": null,
+              "args": [
+                "sum_to"
+              ]
+            },
+            {
+              "op": "copy",
+              "dest": "v3",
+              "args": [
+                0
+              ]
+            },
+            {
+              "op": "copy",
+              "dest": "v4",
+              "args": [
+                0
+              ]
+            },
+            {
+              "op": "copy",
+              "dest": "v6",
+              "args": [
+                6
+              ]
+            },
+            {
+              "op": "bin",
+              "dest": "t2",
+              "args": [
+                "v2",
+                ">",
+                0
+              ]
+            },
+            {
+              "op": "branch",
+              "dest": null,
+              "args": [
+                "t2",
+                "L1",
+                "L2"
+              ]
+            }
+          ],
+          "successors": [
+            "L1",
+            "L2"
+          ]
+        },
+        {
+          "name": "L1",
+          "instructions": [
+            {
+              "op": "label",
+              "dest": null,
+              "args": [
+                "L1"
+              ]
+            },
+            {
+              "op": "bin",
+              "dest": "t3",
+              "args": [
+                "v3",
+                "+",
+                "v6"
+              ]
+            },
+            {
+              "op": "copy",
+              "dest": "v3",
+              "args": [
+                "t3"
+              ]
+            },
+            {
+              "op": "jump",
+              "dest": null,
+              "args": [
+                "L3"
+              ]
+            }
+          ],
+          "successors": [
+            "L3"
+          ]
+        },
+        {
+          "name": "L2",
+          "instructions": [
+            {
+              "op": "label",
+              "dest": null,
+              "args": [
+                "L2"
+              ]
+            },
+            {
+              "op": "copy",
+              "dest": "v3",
+              "args": [
+                0
+              ]
+            }
+          ],
+          "successors": [
+            "L3"
+          ]
+        },
+        {
+          "name": "L3",
+          "instructions": [
+            {
+              "op": "label",
+              "dest": null,
+              "args": [
+                "L3"
+              ]
+            }
+          ],
+          "successors": [
+            "L4"
+          ]
+        },
+        {
+          "name": "L4",
+          "instructions": [
+            {
+              "op": "label",
+              "dest": null,
+              "args": [
+                "L4"
+              ]
+            },
+            {
+              "op": "bin",
+              "dest": "t5",
+              "args": [
+                "v4",
+                "<",
+                "v2"
+              ]
+            },
+            {
+              "op": "branch",
+              "dest": null,
+              "args": [
+                "t5",
+                "L5",
+                "L6"
+              ]
+            }
+          ],
+          "successors": [
+            "L5",
+            "L6"
+          ]
+        },
+        {
+          "name": "L5",
+          "instructions": [
+            {
+              "op": "label",
+              "dest": null,
+              "args": [
+                "L5"
+              ]
+            },
+            {
+              "op": "bin",
+              "dest": "t6",
+              "args": [
+                "v3",
+                "+",
+                "v4"
+              ]
+            },
+            {
+              "op": "copy",
+              "dest": "v3",
+              "args": [
+                "t6"
+              ]
+            },
+            {
+              "op": "bin",
+              "dest": "t7",
+              "args": [
+                "v4",
+                "+",
+                1
+              ]
+            },
+            {
+              "op": "copy",
+              "dest": "v4",
+              "args": [
+                "t7"
+              ]
+            },
+            {
+              "op": "jump",
+              "dest": null,
+              "args": [
+                "L4"
+              ]
+            }
+          ],
+          "successors": [
+            "L4"
+          ]
+        },
+        {
+          "name": "L6",
+          "instructions": [
+            {
+              "op": "label",
+              "dest": null,
+              "args": [
+                "L6"
+              ]
+            },
+            {
+              "op": "return",
+              "dest": null,
+              "args": [
+                "v3"
+              ]
+            }
+          ],
+          "successors": []
+        }
+      ],
+      "metrics": {
+        "instructions_before": 28,
+        "instructions_after": 24,
+        "temporaries_before": 8,
+        "temporaries_after": 5,
+        "colors": 5
+      },
+      "interference": {
+        "v3": [
+          "t2",
+          "t5",
+          "t7",
+          "v2",
+          "v4",
+          "v6"
+        ],
+        "v4": [
+          "t2",
+          "t3",
+          "t5",
+          "t6",
+          "v2",
+          "v3",
+          "v6"
+        ],
+        "v6": [
+          "t2",
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "t2": [
+          "v2",
+          "v3",
+          "v4",
+          "v6"
+        ],
+        "v2": [
+          "t2",
+          "t3",
+          "t5",
+          "t6",
+          "t7",
+          "v3",
+          "v4",
+          "v6"
+        ],
+        "t3": [
+          "v2",
+          "v4"
+        ],
+        "t5": [
+          "v2",
+          "v3",
+          "v4"
+        ],
+        "t6": [
+          "v2",
+          "v4"
+        ],
+        "t7": [
+          "v2",
+          "v3"
+        ]
+      },
+      "coloring": {
+        "v2": 0,
+        "v4": 1,
+        "v3": 2,
+        "t2": 3,
+        "v6": 4,
+        "t5": 3,
+        "t3": 2,
+        "t6": 2,
+        "t7": 1
+      }
+    }
+  ]
+}
